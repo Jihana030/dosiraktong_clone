@@ -24,6 +24,7 @@ body {
     line-height: 1;/*font-size x 1*/
     letter-spacing: 0;
     word-break: keep-all;
+    height: 5000px;
 }
 /* 공통요소 : 2번 이상 재활용 코드 */
 .inner {
@@ -142,10 +143,7 @@ body {
     height: 100vh;
     background: #fff;
     padding-top: 90px;
-    transition: left 0.9s;
-}
-.mb-nav-gnb {
-
+    transition: left 0.5s ease-in-out;
 }
 .mb-nav-gnb li {
     border-bottom: 1px solid #e5e5e5;
@@ -156,17 +154,24 @@ body {
     font-size: 24px;
 }
 /* 스크롤 시 css 적용 */
-.header .active {
+.header.active {
     height: 80px;
     background-color: rgba(255, 255, 255, 1);
 }
-.header .active .nav {
+.header.active .nav {
     height: 80px;
 }
-.header .active .logo {
+.header .logo.active {
     background: url("../images/logo.png") no-repeat center;
     background-size: cover;
     top: 25px;
+}
+.header .logo.active-blue {
+    background: url("../images/logo.png") no-repeat center;
+    background-size: cover;
+}
+.gnb li a.active {
+    color: #222;
 }
 /* 모바일 버튼 애니메이션 */
 .mb-bt span:nth-child(1){
