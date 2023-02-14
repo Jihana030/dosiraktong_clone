@@ -26,7 +26,7 @@ window.onload = () => {
         // 로고에 active 추가
         logo.classList.toggle("active-blue");
         // mb-bt 추가
-        mbBtSpan.forEach((item)=>{
+        mbBtSpan.forEach((item) => {
             item.classList.add("active");
         })
     });
@@ -91,4 +91,7 @@ window.onload = () => {
             item.classList.add("active");
         })
     }
+
+    // swiper
+    new Swiper(".swVisual")
 }
