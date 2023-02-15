@@ -110,16 +110,29 @@ window.onload = () => {
     // 2. fetch : 아래 구문을 준수하자
     fetch("data.json")
         .then((res) => res.json())
-        .then((data=>{
+        .then((data => {
             // 데이터 활용
             // 이 데이터는 문자열
+            // // 보통 라이브러리가 이걸 다 해줌
             visualData = data.visual;
             // showVT(visualData[0])
-            // // 보통 라이브러리가 이걸 다 해줌
 
             // 데이터를 외부변수에 지정해서 밖에서도 쓸 수 있게 만듬
-            visualData = dataArr;
-            console.log(visualData)
+            // li태그 만들기
+            // 1. 데이터 로딩 후 데이터 개수만큼 li만듬
+            // 2. 만들어진 글자를 모아서 ul 안에 innerHTML
+            let html = "";
+            let count = 1;
+            visualData.forEach((item) => {
+                html += `<li>${count++}</li>`
+            })
+            swUl.innerHTML = html;
+            // js가 li를 참조하도록 적용하기
+            swList = document.querySelectorAll('.swVisual-list li');
+            // li태그를 클릭해서 슬라이드 이동하기
+            swlistShow();
+
+            showVT(visualData[0], 0)
         }))
         .catch((err) => {
             console.log(err);
@@ -130,14 +143,42 @@ window.onload = () => {
     const swTitle = document.querySelector('.swVisual-title');
     const swTxt = document.querySelector('.swVisual-txt');
     const swLink = document.querySelector('.swVisual-link');
-    function showVT(_data){
+    const swUl = document.querySelector('.swVisual-list');
+    let swList;
+    // li는 데이터 로딩 후 동적으로 만들어야한다.
+
+    // 타이틀 내용 보여주기
+    function showVT(_data, _idx) {
         swTitle.innerHTML = _data.title;
         swTxt.innerHTML = _data.txt;
-        if(_data.link === "no"){
+        if (_data.link === "no") {
             swLink.classList.add('active');
         } else {
             swLink.classList.remove('active');
         }
+        changeBar(_idx);
+    }
+    // 포커스 라인 애니메이션 실행함수
+    function changeBar(_idx) {
+        swList.forEach((item, index) => {
+            if (index === _idx) {
+                item.classList.add("active");
+            } else {
+                item.classList.remove("active");
+            }
+        })
+    }
+    // li 클릭시 슬라이드 변경
+    function swlistShow(){
+        swList.forEach((item, index)=>{
+            // 클릭 시 슬라이드 변경
+            item.addEventListener('click', ()=>{
+                // swVisual 슬라이드를 변경할 것인가(api 참조)
+                // swVisual.slideToLoop(번호, 속도, 효과);
+
+                swVisual.slideToLoop(index, 500, false);
+            })
+        })
     }
 
     // swiper
@@ -155,10 +196,10 @@ window.onload = () => {
         },
     })
     // 슬라이드가 변경될 때마다
-    swVisual.on("slideChange", function(){
+    swVisual.on("slideChange", function () {
         console.log(swVisual.realIndex)
         console.log(swVisual.activeIndex)
         // 텍스트 수정
-        showVT(visualData[swVisual.realIndex]);
+        showVT(visualData[swVisual.realIndex], swVisual.realIndex);
     })
 }
