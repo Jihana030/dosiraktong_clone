@@ -27,6 +27,8 @@
     <!-- Swiper -->
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- xeicon -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <!-- css -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -95,7 +97,9 @@
                 사용자 지정클래스 (swVisual) : js 및 css 추가
             -->
             <div class="swiper swVisual">
+                <!-- swiper-wrapper 클래스명 변경 및 css 작업 절대 금지 -->
                 <div class="swiper-wrapper">
+                    <!-- swiper-slide 클래스명 변경 및 css 작업 절대 금지 -->
                     <div class="swiper-slide">
                         <div class="visual-img bg-1"></div>
                     </div>
@@ -107,6 +111,26 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="visual-img bg-4"></div>
+                    </div>
+                </div>
+                <!-- 슬라이드의 콘트롤러 -->
+                <div class="swVisual-control">
+                    <div class="inner">
+                        <!-- 좌우버튼 -->
+                        <button class="swVisual-prev"><i class="xi-angle-left"></i></button>
+                        <button class="swVisual-next"><i class="xi-angle-right"></i></button>
+                        <!-- 슬라이드 타이틀 -->
+                        <h2 class="swVisual-title">도시락유심</h2>
+                        <!-- 슬라이드 설명글 -->
+                        <p class="swVisual-txt">도시락으로 다 통한다, 해외데이터는 도시락통</p>
+                        <div class="swVisual-link">
+                            <a href="#">
+                                자세히 보기
+                                <i class="xi-long-arrow-right"></i>
+                            </a>
+                        </div>
+                        <!-- 네비게이션 -->
+                        <div class="swVisual-navi"></div>
                     </div>
                 </div>
             </div>

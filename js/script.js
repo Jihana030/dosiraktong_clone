@@ -91,7 +91,74 @@ window.onload = () => {
             item.classList.add("active");
         })
     }
+    // data.json 연동
+    // 1. XML 활용(반드시 JSON.parse()실행)
+    const xhttp = new XMLHttpRequest();
+    // data.json이 불러졌는지 검사 후 완료 시 시행.
+    xhttp.onreadystatechange = function (e) {
+        const req = e.target;
+        if (e.target === XMLHttpRequest.DONE) {
+            console.log(req.response);
+            // 아래 구문을 반드시 체크하자
+            const dataArr = JSON.parse(req.response);
+            console.log(dataArr)
+        }
+    };
+    xhttp.open("GET", "data.json");
+    // xhttp.send();
+
+    // 2. fetch : 아래 구문을 준수하자
+    fetch("data.json")
+        .then((res) => res.json())
+        .then((data=>{
+            // 데이터 활용
+            // 이 데이터는 문자열
+            visualData = data.visual;
+            // showVT(visualData[0])
+            // // 보통 라이브러리가 이걸 다 해줌
+
+            // 데이터를 외부변수에 지정해서 밖에서도 쓸 수 있게 만듬
+            visualData = dataArr;
+            console.log(visualData)
+        }))
+        .catch((err) => {
+            console.log(err);
+        });
+    // 비주얼에 활용할 데이터
+    let visualData;
+    // 화면에 데이터 출력하는 함수
+    const swTitle = document.querySelector('.swVisual-title');
+    const swTxt = document.querySelector('.swVisual-txt');
+    const swLink = document.querySelector('.swVisual-link');
+    function showVT(_data){
+        swTitle.innerHTML = _data.title;
+        swTxt.innerHTML = _data.txt;
+        if(_data.link === "no"){
+            swLink.classList.add('active');
+        } else {
+            swLink.classList.remove('active');
+        }
+    }
 
     // swiper
-    new Swiper(".swVisual")
+    let swVisual = new Swiper(".swVisual", {
+        effect: "fade",
+        loop: true,
+        speed: 1000,
+        autoplay: {
+            delay: 1000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            prevEl: "swVisula-prev",
+            nextEl: "swVisual-next"
+        },
+    })
+    // 슬라이드가 변경될 때마다
+    swVisual.on("slideChange", function(){
+        console.log(swVisual.realIndex)
+        console.log(swVisual.activeIndex)
+        // 텍스트 수정
+        showVT(visualData[swVisual.realIndex]);
+    })
 }
