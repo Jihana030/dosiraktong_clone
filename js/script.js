@@ -169,10 +169,10 @@ window.onload = () => {
         })
     }
     // li 클릭시 슬라이드 변경
-    function swlistShow(){
-        swList.forEach((item, index)=>{
+    function swlistShow() {
+        swList.forEach((item, index) => {
             // 클릭 시 슬라이드 변경
-            item.addEventListener('click', ()=>{
+            item.addEventListener('click', () => {
                 // swVisual 슬라이드를 변경할 것인가(api 참조)
                 // swVisual.slideToLoop(번호, 속도, 효과);
 
@@ -201,5 +201,23 @@ window.onload = () => {
         console.log(swVisual.activeIndex)
         // 텍스트 수정
         showVT(visualData[swVisual.realIndex], swVisual.realIndex);
+    })
+    // 카테고리 슬라이드
+    new Swiper(".swcategory", {
+        loop: true,
+        slidesPerView: 3,
+        breakpoints: {
+            480: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+    });
+    // 안내창 기능
+    const categoryPop = document.querySelector('.category-pop');
+    categoryPop.addEventListener('click', ()=>{
+        categoryPop.classList.add('active');
     })
 }
