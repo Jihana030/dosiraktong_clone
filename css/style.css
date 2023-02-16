@@ -39,6 +39,24 @@ html.active {
     overflow-x: hidden;
 }
 
+/* 위로가기 */
+.gotop {
+    position: fixed;
+    right: 50px;
+    bottom: 100px;
+    z-index: 9999;
+    border: 0;
+    background: blue;
+    cursor: pointer;
+    width: 100px; height: 100px;
+    opacity: 0;
+    transition: all 0.5s;
+}
+.gotop.active {
+    opacity: 1;
+    background: red;
+}
+
 /* 공통요소 : 2번 이상 재활용 코드 */
 .inner {
     position: relative;
@@ -560,6 +578,8 @@ html.active {
     .service-link-1 {
         max-width: 660px;
         width: 64.45vw;
+        height: 62.5vw;
+        margin: 0 auto;
     }
 
     .service-link-2 {

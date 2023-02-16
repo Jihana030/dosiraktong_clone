@@ -1,5 +1,25 @@
 // 이미지 및 리소스 로드 후 코드 실행
 window.onload = () => {
+    //aos 세팅
+    AOS.init();
+
+    // 위로가기. 
+    let goTop = document.querySelector('.gotop');
+    let visual = document.querySelector('.service');
+    new Waypoint({
+        element: visual,
+        // 스크롤 위치에 따른 div 비교 
+        handler: function(dir){
+            if(dir === "down"){
+                goTop.classList.add('active');
+            } else {
+                goTop.classList.remove('active');
+            }
+        },
+        // 해당 div의 화면상 보이는 영역 
+        offset: "50%"
+    });
+
     // 8.html
     let htmlTeg = document.querySelector('html')
     // 모바일 메뉴 버튼 처리
