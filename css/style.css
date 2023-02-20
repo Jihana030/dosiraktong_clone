@@ -696,19 +696,13 @@ html.active {
     height: 100%;
 }
 .category-link {
-    position: relative;
     display: block;
-    width: 100%;
-    height: 100%;
-}
-.clink-1 {
-    background: yellow;
-}
-.clink-2 {
-    background: green;
-}
-.clink-3 {
-    background: greenyellow;
+    position: relative;
+    min-height: 400px;
+    padding: 85px 60px;
+    border-right: 1px solid #dadfe6;
+    background-color: #eee;
+    transition: background-color .3s,color .3s;
 }
 .category-pop {
     position: absolute;
@@ -725,6 +719,68 @@ html.active {
 .category-pop.active {
     display: none !important;
 }
+.category-title {
+    margin-bottom: 14px;
+    font-size: 28px;
+}
+.category-detail {
+    position: relative;
+    margin-bottom: 42px;
+    font-size: 17px;
+    opacity: .8;
+    z-index: 1;
+}
+.category-read {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid #222;
+    letter-spacing: -1px;
+    transition: border .3s;
+}
+.clink-1::after {
+    background-image: url('../images/main_banner_figure1.png');
+    right: -30px;
+    bottom: 10px;
+    max-width: 304px;
+}
+.clink-1:hover {
+    background-color: #3f73ac;
+    color: white;
+}
+.clink-1:hover .cread-1 {
+    border-bottom: 2px solid white;
+}
+.clink-2::after {
+    background-image: url('../images/main_banner_figure2.png');
+    right: -30px;
+    bottom: 10px;
+    max-width: 304px;
+}
+.clink-2:hover {
+    background-color: #ff513a;
+    color: white;
+}
+.clink-2:hover .cread-2 {
+    border-bottom: 2px solid white;
+}
+.clink-3::after {
+    background-image: url('../images/main_banner_figure3.png');
+    right: -30px;
+    bottom: 10px;
+    max-width: 304px;
+}
+.clink-3:hover {
+    background-color: #fdb93a;
+    color: white;
+}
+.clink-3:hover .cread-3 {
+    border-bottom: 2px solid white;
+}
 @media screen and (max-width:1024px) {
     .category-pop {
         display: flex;
@@ -739,4 +795,22 @@ html.active {
     text-align: center;
     background: #222;
     color: #666;
+}
+.foot-ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+.foot-li {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1px;
+    height: 12px;
+    background-color: #444;
+    transform: translateY(-50%);
 }
