@@ -69,6 +69,9 @@ html.active {
     /*가운데 정렬*/
     padding: 0 30px;
 }
+.main-color {
+    color: #3a68b2;
+}
 /* 레이아웃 */
 .wrap {
     position: relative;
@@ -402,8 +405,6 @@ html.active {
     align-items: center;
     width: 180px;
     height: 55px;
-    width: 180px;
-    height: 55px;
     padding: 0 20px;
     margin-top: 30px;
     font-size: 16px;
@@ -629,19 +630,35 @@ html.active {
     height: 61.03vw;
     width: 100%;
     max-height: 430px;
-    background: skyblue;
 }
 
 .info-left {
     width: calc(50% - 10px);
     height: 100%;
-    background: yellow;
+    font-size: 44px;
+    line-height: 1.35;
 }
 
 .info-right {
     width: calc(50% - 10px);
     height: 100%;
-    background: green;
+}
+.info-right-h4 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 45px;
+}
+.info-right-top {
+    margin-bottom: 25px;
+}
+.info-about {
+    display: inline-block;
+    margin-top: 90px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid #222;
+    padding: 0 10px;
+    height: 30px;
 }
 /* info 반응형 */
 @media screen and (max-width:1280px) {
@@ -653,6 +670,7 @@ html.active {
     .info-contents {
         justify-content: center;
         flex-wrap: wrap;
+
     }
 
     .info-left {
