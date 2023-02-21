@@ -60,7 +60,12 @@ html.active {
     background: #3a68b2;
 }
 .gotop.bottom {
-    bottom: 200px;
+    bottom: 250px;
+}
+@media screen and (max-width:640px) {
+    .gotop.bottom {
+        bottom: 350px;
+    }
 }
 
 /* 공통요소 : 2번 이상 재활용 코드 */
@@ -99,7 +104,7 @@ html.active {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .head-bs {
-    box-shadow: 0 1px 10px 1px #ebebeb;
+    box-shadow: 0 1px 10px 1px rgba(219, 219, 219, 0.8);
 }
 
 .header .inner {
@@ -539,7 +544,7 @@ html.active {
     height: 100%;
     background: url('../images/main_service_img1.jpg') no-repeat center;
     background-size: cover;
-    /* margin: 0 auto; */
+    margin: 0 auto;
 }
 .service-link-2 {
     display: block;
@@ -556,52 +561,99 @@ html.active {
     background: url('../images/main_service_img3.jpg') no-repeat center;
     background-size: cover;
 }
+.service-txt {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 60px;
+    color: #fff;
+}
+.service-title {
+    font-size: 26px;
+}
+.service-detaile {
+    font-size: 17px;
+    font-weight: 300;
+    opacity: 0.8;
+}
+.service-go {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 140px;
+    height: 40px;
+    padding: 0 15px 0 20px;
+    margin-top: 20px;
+    font-size: 15px;
+    border: 1px solid rgba(255,255,255,.3);
+    color: #fff;
+    transition: color .3s, background-color .3s;
+}
 
 @media screen and (max-width:1460px) {
     .service-contents {
         /* 680 / 1460 * 100 */
-        height: 46.57vw;
+        /* height: 46.57vw; */
+    }
+}
+@media screen and (max-width:1280px) {
+    .service h3 {
+        font-size: 34px;
     }
 }
 
 @media screen and (max-width:1024px) {
-    .service {
-        height: auto;
+    .service h3 {
+        font-size: 30px;
+    }
+    .service .inner {
+        height: 1500px;
     }
 
     .service-contents {
         flex-wrap: wrap;
-        height: auto;
+        margin: 0 auto;
+        /* height: auto; */
     }
 
     .service-left {
         width: 100%;
-        margin-bottom: 20px;
+        height: auto;
+        max-width: 680px;
+        margin: 20px auto;
+        /* margin-bottom: 20px; */
     }
 
     .service-right {
         width: 100%;
+        height: auto;
         justify-content: center;
     }
 
     .service-link-1 {
-        max-width: 660px;
-        width: 64.45vw;
-        height: 62.5vw;
+        height: 80vw;
+        width: 100%;
+        max-width: 680px;
         margin: 0 auto;
     }
 
     .service-link-2 {
-        max-width: 660px;
-        width: 64.45vw;
-        height: 30vw;
+        height: 35vw;
+        width: 100%;
+        max-width: 680px;
         margin-bottom: 20px;
     }
 
     .service-link-3 {
-        max-width: 660px;
-        width: 64.45vw;
-        height: 30vw;
+        height: 35vw;
+        width: 100%;
+        max-width: 680px;
     }
 }
 
@@ -635,9 +687,7 @@ html.active {
 .info-contents {
     display: flex;
     justify-content: space-between;
-    height: 61.03vw;
     width: 100%;
-    max-height: 430px;
 }
 
 .info-left {
@@ -671,14 +721,15 @@ html.active {
 /* info 반응형 */
 @media screen and (max-width:1280px) {
     .info-contents {
-        height: 383px;
     }
 }
 @media screen and (max-width:1024px) {
     .info-contents {
         justify-content: center;
         flex-wrap: wrap;
-
+    }
+    .info .inner {
+        padding: 0 30px;
     }
 
     .info-left {
@@ -698,7 +749,7 @@ html.active {
 .category {
     position: relative;
     display: block;
-    height: 400px;
+    height: 100%;
 }
 .swcategory {
     height: 100%;
@@ -761,6 +812,7 @@ html.active {
     border-bottom: 2px solid #222;
     letter-spacing: -1px;
     transition: border .3s;
+    z-index: 99;
 }
 .clink-1::after {
     background-image: url('../images/main_banner_figure1.png');
@@ -801,9 +853,34 @@ html.active {
 .clink-3:hover .cread-3 {
     border-bottom: 2px solid white;
 }
+@media screen and (max-width:1600px) {
+    .category-link {
+        padding: 30px;
+        min-height: 400px;
+    }
+}
+@media screen and (max-width:1280px) {
+    .clink-1::after, .clink-2::after, .clink-3::after {
+        width: 70%;
+        z-index: 1;
+    }
+}
 @media screen and (max-width:1024px) {
     .category-pop {
+        padding: 25px 20px;
         display: flex;
+    }
+}
+@media screen and (max-width:640px) {
+    .category-link {
+        min-height: 300px;
+    }
+    .category-640 {
+        display: none;
+    }
+    .clink-1::after, .clink-2::after, .clink-3::after {
+        width: 50%;
+        z-index: 1;
     }
 }
 
@@ -815,6 +892,7 @@ html.active {
     text-align: center;
     background: #222;
     color: #666;
+    padding: 60px 0;
 }
 .foot-ul {
     display: flex;
@@ -841,5 +919,15 @@ html.active {
     transform: translateY(-50%);
 }
 .foot-p {
-    padding: 10px 0;
+    padding: 5px 0;
+}
+.foot-copy {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #444444;
+}
+@media screen and (max-width:640px) {
+    .foot-ul {
+        flex-direction: column;
+    }
 }

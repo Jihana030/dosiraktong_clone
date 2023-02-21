@@ -81,8 +81,6 @@ window.onload = () => {
         let scT = window.document.documentElement.scrollTop;
         let scB = window.document.documentElement.scrollHeight;
         let scI = window.innerHeight;
-        console.log(`scT: ${scT}`)
-        console.log(`scB: ${scB}`)
         // 스크롤 했다면
         if (scT > 699) {
             header.classList.add("active", "head-bs");
