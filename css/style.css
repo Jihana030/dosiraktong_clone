@@ -706,6 +706,18 @@ html.active {
     background-color: #eee;
     transition: background-color .3s,color .3s;
 }
+.category-link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: contain;
+}
 .category-pop {
     position: absolute;
     display: none;
