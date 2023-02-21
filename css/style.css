@@ -95,6 +95,9 @@ html.active {
     transition: height 0.5s, background 0.5s;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
+.head-bs {
+    box-shadow: 0 1px 10px 1px #ebebeb;
+}
 
 .header .inner {
     max-width: 100%;

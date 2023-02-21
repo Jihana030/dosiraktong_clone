@@ -79,7 +79,25 @@ window.onload = () => {
     window.addEventListener('scroll', () => {
         let scT = window.document.documentElement.scrollTop;
         // 스크롤 했다면
-        if (scT > 99) {
+        if (scT > 699) {
+            header.classList.add("active", "head-bs");
+            logo.classList.add("active");
+            gnbA.forEach((item) => {
+                item.classList.add("active");
+            })
+            mbBtSpan.forEach((item) => {
+                item.classList.add("active");
+            })
+        } else if(scT < 699){
+            header.classList.remove("active", "head-bs");
+            logo.classList.remove("active");
+            gnbA.forEach((item) => {
+                item.classList.remove("active");
+            })
+            mbBtSpan.forEach((item) => {
+                item.classList.remove("active");
+            })
+        } else if(scT > 99){
             header.classList.add("active");
             logo.classList.add("active");
             gnbA.forEach((item) => {
