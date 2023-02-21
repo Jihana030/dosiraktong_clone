@@ -46,15 +46,18 @@ html.active {
     bottom: 100px;
     z-index: 9999;
     border: 0;
-    background: blue;
+    border-radius: 10%;
+    color: white;
+    font-size: 24px;
+    background: #3a68b2;
     cursor: pointer;
-    width: 100px; height: 100px;
+    width: 60px; height: 60px;
     opacity: 0;
     transition: all 0.5s;
 }
 .gotop.active {
     opacity: 1;
-    background: red;
+    background: #3a68b2;
 }
 
 /* 공통요소 : 2번 이상 재활용 코드 */
