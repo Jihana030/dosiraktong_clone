@@ -20,6 +20,7 @@ window.onload = () => {
         offset: "50%"
     });
 
+    let footer = document.querySelector('.footer');
     // 8.html
     let htmlTeg = document.querySelector('html')
     // 모바일 메뉴 버튼 처리
@@ -78,6 +79,10 @@ window.onload = () => {
     // 스크롤 처리
     window.addEventListener('scroll', () => {
         let scT = window.document.documentElement.scrollTop;
+        let scB = window.document.documentElement.scrollHeight;
+        let scI = window.innerHeight;
+        console.log(`scT: ${scT}`)
+        console.log(`scB: ${scB}`)
         // 스크롤 했다면
         if (scT > 699) {
             header.classList.add("active", "head-bs");
@@ -115,6 +120,11 @@ window.onload = () => {
             mbBtSpan.forEach((item) => {
                 item.classList.remove("active");
             })
+        }
+        if(scB === (scT + scI)){
+            goTop.classList.add('bottom');
+        } else {
+            goTop.classList.remove('bottom');
         }
     })
     // 화면 리로드 시 처리

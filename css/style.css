@@ -59,6 +59,9 @@ html.active {
     opacity: 1;
     background: #3a68b2;
 }
+.gotop.bottom {
+    bottom: 200px;
+}
 
 /* 공통요소 : 2번 이상 재활용 코드 */
 .inner {
