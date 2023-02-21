@@ -804,6 +804,12 @@ html.active {
     line-height: 1.7;
 }
 .foot-li {
+    position: relative;
+    padding: 0 18px;
+    font-size: 15px;
+    color: #666666;
+}
+.foot-li::after {
     content: "";
     display: block;
     position: absolute;
@@ -813,4 +819,7 @@ html.active {
     height: 12px;
     background-color: #444;
     transform: translateY(-50%);
+}
+.foot-p {
+    padding: 10px 0;
 }
