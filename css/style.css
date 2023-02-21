@@ -324,7 +324,6 @@ html.active {
     display: block;
     width: 100%;
     height: 100%;
-    background: green;
 }
 
 /* 상세 슬라이드 내용 css */
@@ -377,7 +376,7 @@ html.active {
 
 .swVisual-prev i,
 .swVisual-next i {
-    opacity: 0.2;
+    opacity: 0.5;
     transition: opacity 0.3s;
 }
 
@@ -427,8 +426,9 @@ html.active {
     border: 1px solid #fff;
     color: #fff;
 }
-
-.swVisual-navi {}
+.swVisual-navi {
+    margin-top: 50px;
+}
 
 .swVisual-list {
     display: flex;
@@ -504,14 +504,13 @@ html.active {
     padding: 180px 30px;
 }
 
-.service h2 {
+.service h3 {
     text-align: center;
+    font-size: 38px;
+    margin-bottom: 30px;
     /* 글자 셋팅 */
 }
 
-.service h2 span {
-    /* 글자 색만 수정 */
-}
 .service-contents {
     display: flex;
     justify-content: space-between;

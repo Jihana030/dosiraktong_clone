@@ -142,9 +142,9 @@ window.onload = () => {
             // 1. 데이터 로딩 후 데이터 개수만큼 li만듬
             // 2. 만들어진 글자를 모아서 ul 안에 innerHTML
             let html = "";
-            let count = 1;
+            let count = 0;
             visualData.forEach((item) => {
-                html += `<li>${count++}</li>`
+                html += `<li>${++count}</li>`
             })
             swUl.innerHTML = html;
             // js가 li를 참조하도록 적용하기
@@ -152,7 +152,7 @@ window.onload = () => {
             // li태그를 클릭해서 슬라이드 이동하기
             swlistShow();
 
-            showVT(visualData[0], 0)
+            showVT(visualData[0], 0);
         }))
         .catch((err) => {
             console.log(err);
@@ -217,8 +217,8 @@ window.onload = () => {
     })
     // 슬라이드가 변경될 때마다
     swVisual.on("slideChange", function () {
-        console.log(swVisual.realIndex)
-        console.log(swVisual.activeIndex)
+        // console.log(`swVisual.realIndex: ${swVisual.realIndex}`)
+        // console.log(`swVisual.activeIndex: ${swVisual.activeIndex}`)
         // 텍스트 수정
         showVT(visualData[swVisual.realIndex], swVisual.realIndex);
     })
