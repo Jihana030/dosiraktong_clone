@@ -9,8 +9,8 @@ window.onload = () => {
     new Waypoint({
         element: visual,
         // 스크롤 위치에 따른 div 비교 
-        handler: function(dir){
-            if(dir === "down"){
+        handler: function (dir) {
+            if (dir === "down") {
                 goTop.classList.add('active');
             } else {
                 goTop.classList.remove('active');
@@ -20,7 +20,6 @@ window.onload = () => {
         offset: "50%"
     });
 
-    let footer = document.querySelector('.footer');
     // 8.html
     let htmlTeg = document.querySelector('html')
     // 모바일 메뉴 버튼 처리
@@ -91,7 +90,7 @@ window.onload = () => {
             mbBtSpan.forEach((item) => {
                 item.classList.add("active");
             })
-        } else if(scT < 699){
+        } else if (scT < 699) {
             header.classList.remove("active", "head-bs");
             logo.classList.remove("active");
             gnbA.forEach((item) => {
@@ -100,7 +99,7 @@ window.onload = () => {
             mbBtSpan.forEach((item) => {
                 item.classList.remove("active");
             })
-        } else if(scT > 99){
+        } else if (scT > 99) {
             header.classList.add("active");
             logo.classList.add("active");
             gnbA.forEach((item) => {
@@ -119,7 +118,7 @@ window.onload = () => {
                 item.classList.remove("active");
             })
         }
-        if(scB === (scT + scI)){
+        if (scB === (scT + scI)) {
             goTop.classList.add('bottom');
         } else {
             goTop.classList.remove('bottom');
@@ -168,9 +167,9 @@ window.onload = () => {
             // 1. 데이터 로딩 후 데이터 개수만큼 li만듬
             // 2. 만들어진 글자를 모아서 ul 안에 innerHTML
             let html = "";
-            let count = 0;
+            let count = 1;
             visualData.forEach((item) => {
-                html += `<li>${++count}</li>`
+                html += `<li>${count++}</li>`
             })
             swUl.innerHTML = html;
             // js가 li를 참조하도록 적용하기
@@ -178,7 +177,13 @@ window.onload = () => {
             // li태그를 클릭해서 슬라이드 이동하기
             swlistShow();
 
-            showVT(visualData[0], 0);
+            setTimeout(function () {
+                showVT(visualData[0], 0);
+            }, 20);
+
+            setTimeout(function () {
+                initSwiper();
+            }, 2000);
         }))
         .catch((err) => {
             console.log(err);
@@ -190,11 +195,12 @@ window.onload = () => {
     const swTxt = document.querySelector('.swVisual-txt');
     const swLink = document.querySelector('.swVisual-link');
     const swUl = document.querySelector('.swVisual-list');
+
     let swList;
     // li는 데이터 로딩 후 동적으로 만들어야한다.
 
     // 타이틀 내용 보여주기
-    function showVT(_data, _idx) {
+    function showVT(_data, idx) {
         swTitle.innerHTML = _data.title;
         swTxt.innerHTML = _data.txt;
         if (_data.link === "no") {
@@ -202,52 +208,50 @@ window.onload = () => {
         } else {
             swLink.classList.remove('active');
         }
-        changeBar(_idx);
+        changeBar(idx);
     }
     // 포커스 라인 애니메이션 실행함수
-    function changeBar(_idx) {
-        swList.forEach((item, index) => {
-            if (index === _idx) {
-                item.classList.add("active");
-            } else {
-                item.classList.remove("active");
-            }
+    function changeBar(index) {
+        swList.forEach((item, idx) => {
+            item.classList.toggle('active', index === idx);
         })
     }
     // li 클릭시 슬라이드 변경
     function swlistShow() {
-        swList.forEach((item, index) => {
+        swList.forEach((item, idx) => {
             // 클릭 시 슬라이드 변경
             item.addEventListener('click', () => {
                 // swVisual 슬라이드를 변경할 것인가(api 참조)
                 // swVisual.slideToLoop(번호, 속도, 효과);
 
-                swVisual.slideToLoop(index, 500, false);
+                swVisual.slideToLoop(idx, 500, false);
             })
         })
     }
 
     // swiper
-    let swVisual = new Swiper(".swVisual", {
-        effect: "fade",
-        loop: true,
-        speed: 1000,
-        autoplay: {
-            delay: 1000,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            prevEl: "swVisula-prev",
-            nextEl: "swVisual-next"
-        },
-    })
-    // 슬라이드가 변경될 때마다
-    swVisual.on("slideChange", function () {
-        // console.log(`swVisual.realIndex: ${swVisual.realIndex}`)
-        // console.log(`swVisual.activeIndex: ${swVisual.activeIndex}`)
-        // 텍스트 수정
-        showVT(visualData[swVisual.realIndex], swVisual.realIndex);
-    })
+    let swVisual = null;
+    function initSwiper() {
+        swVisual = new Swiper('.swvisual', {
+            effect: 'fade',
+            loop: true,
+            speed: 2000,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                prevEl: '.swvisual-prev',
+                nextEl: '.swvisual-next',
+            }
+        });
+
+        // 슬라이드가 변경될 때마다
+        swVisual.on("slideChange", function () {
+            // 텍스트 수정
+            showVT(visualData[swVisual.realIndex], swVisual.realIndex);
+        })
+    }
     // 카테고리 슬라이드
     new Swiper(".swcategory", {
         loop: true,
@@ -263,7 +267,7 @@ window.onload = () => {
     });
     // 안내창 기능
     const categoryPop = document.querySelector('.category-pop');
-    categoryPop.addEventListener('click', ()=>{
+    categoryPop.addEventListener('click', () => {
         categoryPop.classList.add('active');
     })
 }
