@@ -183,7 +183,7 @@ window.onload = () => {
 
             setTimeout(function () {
                 initSwiper();
-            }, 2000);
+            }, 800);
         }))
         .catch((err) => {
             console.log(err);
@@ -232,7 +232,7 @@ window.onload = () => {
     // swiper
     let swVisual = null;
     function initSwiper() {
-        swVisual = new Swiper('.swvisual', {
+        swVisual = new Swiper('.swVisual', {
             effect: 'fade',
             loop: true,
             speed: 2000,
@@ -241,8 +241,8 @@ window.onload = () => {
                 disableOnInteraction: false,
             },
             navigation: {
-                prevEl: '.swvisual-prev',
-                nextEl: '.swvisual-next',
+                prevEl: '.swVisual-prev',
+                nextEl: '.swVisual-next',
             }
         });
 
