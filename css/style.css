@@ -525,11 +525,9 @@ html.active {
 .service-contents {
     display: flex;
     justify-content: space-between;
-    height: 680px;
 }
 .service-left {
     width: calc(50% - 10px);
-    height: 100%;
 }
 .service-right {
     display: flex;
@@ -552,6 +550,7 @@ html.active {
     height: calc(50% - 10px);
     background: url('../images/main_service_img2.jpg') no-repeat center;
     background-size: cover;
+    margin-bottom: 20px;
 }
 
 .service-link-3 {
@@ -596,26 +595,15 @@ html.active {
     transition: color .3s, background-color .3s;
 }
 
-@media screen and (max-width:1460px) {
-    .service-contents {
-        /* 680 / 1460 * 100 */
-        /* height: 46.57vw; */
-    }
-}
 @media screen and (max-width:1280px) {
     .service h3 {
         font-size: 34px;
     }
 }
-
 @media screen and (max-width:1024px) {
     .service h3 {
         font-size: 30px;
     }
-    .service .inner {
-        height: 1800px;
-    }
-
     .service-contents {
         flex-wrap: wrap;
         margin: 0 auto;
@@ -681,7 +669,7 @@ html.active {
 }
 
 .info .inner {
-    padding: 180px 30px;
+    padding: 100px 30px;
 }
 
 .info-contents {
