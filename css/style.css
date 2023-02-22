@@ -870,6 +870,13 @@ html.active {
         padding: 25px 20px;
         display: flex;
     }
+    .clink-1:hover, .clink-2:hover, .clink-3:hover {
+        background: #eee;
+        color: #222;
+    }
+    .clink-1:hover .cread-1, .clink-2:hover .cread-2, .clink-3:hover .cread-3 {
+        border-bottom: 2px solid #222;
+    }
 }
 @media screen and (max-width:640px) {
     .category-link {
