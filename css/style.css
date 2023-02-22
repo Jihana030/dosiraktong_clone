@@ -613,7 +613,7 @@ html.active {
         font-size: 30px;
     }
     .service .inner {
-        height: 1500px;
+        height: 1800px;
     }
 
     .service-contents {
@@ -720,28 +720,49 @@ html.active {
 }
 /* info 반응형 */
 @media screen and (max-width:1280px) {
-    .info-contents {
+    .info-right-h4 {
+        font-size: 24px;
+    }
+    .info-right {
+        margin-bottom: 30px;
     }
 }
 @media screen and (max-width:1024px) {
     .info-contents {
+        text-align: center;
         justify-content: center;
         flex-wrap: wrap;
     }
     .info .inner {
+        justify-items: center;
         padding: 0 30px;
     }
 
     .info-left {
+        margin-bottom: 40px;
+        justify-items: center;
+        width: 100%;
+        height: auto;
+        font-size: 34px;
+    }
+    
+    .info-right {
+        justify-items: center;
         width: 100%;
         height: auto;
         padding: 50px 0;
     }
-    
-    .info-right {
-        width: 100%;
-        height: auto;
-        padding: 50px 0;
+}
+
+@media screen and (max-width: 640px) {
+    .info-left {
+        font-size: 30px;
+    }
+    .info-right-h4 {
+        font-size: 22px;
+    }
+    .info-about {
+        margin-top: 30px;
     }
 }
 
